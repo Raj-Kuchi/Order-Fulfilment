@@ -18,31 +18,12 @@ public class Orders {
 	@Column(name="order_id")
 	private Long orderId;
 	
-	/*
-	@Column(name="requested")
-	@OneToMany(mappedBy="orders")
 	
-	private List<OrderDetails> orderDetails = new ArrayList();
-*/
 	public Long getOrderId() {
 		return orderId;
 	}
 
 	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
-	}
-
-	/*
-	public List<OrderDetails> getOrderDetails() {
-		return orderDetails;
-	}
-
-	public void setOrderDetails(List<OrderDetails> orderDetails) {
-		this.orderDetails = orderDetails;
-	} */
-	
-	
-	
-	
-	
+	}	
 }
