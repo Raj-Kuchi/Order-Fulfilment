@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "093011ed-877c-430a-ac4a-b938c4236736",
+		"name": "Zipline",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_catalog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/get_catalog",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"get_catalog"
+					]
+				},
+				"description": "Returns the items in the catalog."
+			},
+			"response": []
+		},
+		{
+			"name": "init_catalog",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n      \"mass_g\":700,\n      \"product_name\":\"RBC A+ Adult\",\n      \"product_id\":0\n   },\n   {\n      \"mass_g\":700,\n      \"product_name\":\"RBC B+ Adult\",\n      \"product_id\":1\n   },\n   {\n      \"mass_g\":750,\n      \"product_name\":\"RBC AB + Adult\",\n      \"product_id\":2\n   },\n   {\n      \"mass_g\":680,\n      \"product_name\":\"RBC O - Adult\",\n      \"product_id\":3\n   },\n   {\n      \"mass_g\":350,\n      \"product_name\":\"RBC A+ Child\",\n      \"product_id\":4\n   },\n   {\n      \"mass_g\":200,\n      \"product_name\":\"RBC AB+ Child\",\n      \"product_id\":5\n   },\n   {\n      \"mass_g\":120,\n      \"product_name\":\"PLT AB+\",\n      \"product_id\":6\n   },\n   {\n      \"mass_g\":80,\n      \"product_name\":\"PLT O+\",\n      \"product_id\":7\n   },\n   {\n      \"mass_g\":40,\n      \"product_name\":\"CRYO A+\",\n      \"product_id\":8\n   },\n   {\n      \"mass_g\":80,\n      \"product_name\":\"CRYO AB+\",\n      \"product_id\":9\n   },\n   {\n      \"mass_g\":300,\n      \"product_name\":\"FFP A+\",\n      \"product_id\":10\n   },\n   {\n      \"mass_g\":300,\n      \"product_name\":\"FFP B+\",\n      \"product_id\":11\n   },\n   {\n      \"mass_g\":300,\n      \"product_name\":\"FFP AB+\",\n      \"product_id\":12\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/init_catalog",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"init_catalog"
+					]
+				},
+				"description": "Initializes the catalog. This is expected to be called once to initialize. Subsequent calls will be a no-op."
+			},
+			"response": []
+		},
+		{
+			"name": "process_restock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n      \"product_id\":0,\n      \"quantity\":30\n   },\n   {\n      \"product_id\":1,\n      \"quantity\":25\n   },\n   {\n      \"product_id\":2,\n      \"quantity\":25\n   },\n   {\n      \"product_id\":3,\n      \"quantity\":12\n   },\n   {\n      \"product_id\":4,\n      \"quantity\":15\n   },\n   {\n      \"product_id\":5,\n      \"quantity\":10\n   },\n   {\n      \"product_id\":6,\n      \"quantity\":8\n   },\n   {\n      \"product_id\":7,\n      \"quantity\":8\n   },\n   {\n      \"product_id\":8,\n      \"quantity\":20\n   },\n   {\n      \"product_id\":9,\n      \"quantity\":10\n   },\n   {\n      \"product_id\":10,\n      \"quantity\":5\n   },\n   {\n      \"product_id\":11,\n      \"quantity\":5\n   },\n   {\n      \"product_id\":12,\n      \"quantity\":5\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/process_restock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"process_restock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process_order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"order_id\": 123,\n\t\"requested\": [{\n\t\t\t\"product_id\": 0,\n\t\t\t\"quantity\": 2\n\t\t},\n\t\t{\n\t\t\t\"product_id\": 10,\n\t\t\t\"quantity\": 4\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/process_order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"process_order"
+					]
+				},
+				"description": "Process an order"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
